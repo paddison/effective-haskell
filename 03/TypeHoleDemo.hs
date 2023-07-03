@@ -26,3 +26,11 @@ showFields =
       , mergeFirstTwo c joinFields
       )
   
+showStringPair :: (String, String) -> String
+showStringPair (a, b) = "fst: " <> a <> ", snd: " <> b
+
+doubleField :: a -> (a, a)
+doubleField a = (a, a)
+
+showValues :: String
+showValues = unlines $ map (showStringPair . doubleField . show) [1..10]
